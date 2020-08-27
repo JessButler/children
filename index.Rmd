@@ -1,0 +1,245 @@
+---
+title: "Vulnerable Children in Grampian"
+output: html_document
+---
+
+```{r, include = F}
+library(here)
+library(tidyverse)
+library(janitor)
+library(sf)
+library(gt)
+library(cowplot)
+library(plotly)
+
+theme_set(theme_cowplot())
+```
+ 
+
+-----
+
+```{r, include = F}
+#load SIMD data
+
+simd_zones <- 
+  read_csv(here("data", "SIMD+2020v2+-+datazone+lookup.csv")) 
+
+simd_indicators <- 
+  read_csv(here("data", "SIMD2020v2_indicators.csv")) %>%
+   mutate(across(everything(), ~ str_remove_all(., "%")),
+          across(everything(), ~ str_remove_all(., "\\*")),
+          across(Total_population:nocentralheat_rate, ~ as.numeric(.)))
+
+#load shapefiles for maps
+
+datazone_sf <- st_read(here("data", "sc_dz_11.shp"))
+
+#load data from 2011 census bulk files
+#clean variable names to remove caps and spaces
+
+lone_parent <- read_csv(here("data", "SNS Data Zone 2011 blk", "KS107SC.csv")) %>% 
+  clean_names()
+
+children <- read_csv(here("data", "SNS Data Zone 2011 blk", "KS106SC.csv")) %>% 
+  clean_names()
+```
+
+```{r, include = F}
+#join deprivation to census files
+simd <- left_join(simd_indicators, simd_zones, by = c("Data_Zone" = "DZ")) %>%
+  left_join(., lone_parent, by = c("Data_Zone" = "x1")) %>%
+  left_join(., children, by = c("Data_Zone" = "x1"))
+
+#add columns with lone parent stats as percentages of working age population
+simd <-
+simd %>%
+  mutate(
+    across(
+      lone_parent_total:one_or_more_persons_in_household_with_a_long_term_health_problem_or_disability_no_dependent_children,
+      ~ round(.x /all_households * 100, 1),
+      .names = "perc_{col}"
+    )
+  )
+```
+
+
+```{r, include = F}
+#pull grampian regions only
+
+grampian <-
+  simd %>%
+  filter(HBname == "Grampian") 
+
+grampian_data_zones <- pull(grampian, Data_Zone)
+```
+
+
+```{r, include = F}
+grampian_sf <- filter(datazone_sf, DataZone %in% grampian_data_zones)
+
+grampian_sf <-
+  left_join(grampian_sf, grampian, by = c("DataZone" = "Data_Zone"))
+
+```
+
+## 1. Unemploymed parents 
+
+### Are unemployed parents more deprived? 
+**Mouseover or click points for area names**
+
+```{r, echo = F}
+grampian %>%
+  group_by(SIMD2020v2_Decile) %>%
+  summarise(n_datazones = n(),
+            n_households = sum(all_households),
+            n_people = sum(Total_population),
+            median_disabled_adult = median(perc_one_or_more_persons_in_household_with_a_long_term_health_problem_or_disability_with_dependent_children),
+            median_no_employed_adults = median(perc_no_adults_in_employment_in_household_with_dependent_children))
+```
+
+```{r}
+simd_unemployed_plot <-
+grampian %>%
+  ggplot(aes(y = SIMD2020v2_Rank, 
+             x = perc_no_adults_in_employment_in_household_with_dependent_children, label = DZname, 
+             color = 
+               (perc_no_adults_in_employment_in_household_with_dependent_children < 5.15 & SIMD2020v2_Decile == 1) |
+               (perc_no_adults_in_employment_in_household_with_dependent_children < 4.50 & SIMD2020v2_Decile == 2) |
+               (perc_no_adults_in_employment_in_household_with_dependent_children < 2.90 & SIMD2020v2_Decile == 3) 
+  )) +
+  #annotate("rect", xmin = 7, xmax = 18, ymin = 2800, ymax = 0, alpha = 0.05) +
+  #annotate("text", x = 14.75, y = 2300, label = "Areas with highest deprivation\n& most lone parents", size = 3.5) +
+  geom_point(alpha = 0.5) +
+  scale_y_reverse() +
+  scale_color_brewer(type = "qual", palette = "Dark2") +
+  labs(x = "households with dependent children and no employed adults (%)", y = "\nDeprivation Rank\n") +
+  theme(legend.position = "none", axis.text.y = element_blank(), axis.text = element_text(size = 10), axis.title  = element_text(size = 12))
+
+ggplotly(simd_unemployed_plot, tooltip = "label")
+```
+
+```{r}
+p <-
+grampian %>%
+  ggplot(aes(
+    x = perc_no_adults_in_employment_in_household_with_dependent_children,
+    y = perc_one_or_more_persons_in_household_with_a_long_term_health_problem_or_disability_with_dependent_children,
+    label = DZname
+    )) +
+  geom_point(alpha = 0.5) +
+  theme(legend.position = "none", axis.text = element_text(size = 10), axis.title  = element_text(size = 12))
+
+ggplotly(p, tooltip = "label")
+```
+
+
+
+
+## 2. Lone Parents 
+
+### Are lone parents more deprived? 
+**Mouseover or click points for area names**
+
+```{r, echo = F}
+simd_lone_plot <-
+grampian_sf %>%
+  ggplot(aes(y = SIMD2020v2_Rank, x = perc_lone_parent_total, label = DZname, color = SIMD2020v2_Decile %in% c(1, 2, 3, 4) & perc_lone_parent_total >= 7)) +
+  annotate("rect", xmin = 7, xmax = 18, ymin = 2800, ymax = 0, alpha = 0.05) +
+  annotate("text", x = 14.75, y = 2300, label = "Areas with highest deprivation\n& most lone parents", size = 3.5) +
+  geom_point(alpha = 0.5) +
+  scale_y_reverse() +
+  scale_color_brewer(type = "qual", palette = "Dark2") +
+  labs(x = "% of working age population lone parent", y = "\nDeprivation Rank\n") +
+  theme(legend.position = "none", axis.text.y = element_blank(), axis.text = element_text(size = 10), axis.title  = element_text(size = 12))
+
+ggplotly(simd_lone_plot, tooltip = "label")
+```
+
+### Where do lone parents live?
+**Mouseover or click points for area names**
+
+```{r echo = F, message=F, fig.width=8}
+#parent_plot <-
+ggplot(data = grampian_sf,
+       aes(y = perc_lone_parent_total, x = LAname, color = LAname, label = DZname)) + 
+  geom_violin(alpha = 0.5) +
+  geom_jitter(width = 0.1, alpha = 0.5) +
+  geom_smooth(size = 0.5, method = "lm", se = F) +
+  theme(legend.position = "none") +
+  labs(x = "", y = "\nLone parents (%)\n")
+
+ggplotly(parent_plot, tooltip = "label")
+```
+
+```{r, echo = F}
+grampian %>%
+  filter(Council_area == "Aberdeen City") %>%
+  select(DZname, Total_population, perc_lone_parent_total, SIMD2020v2_Decile) %>%
+    filter(perc_lone_parent_total >= 10) %>%
+    arrange(desc(perc_lone_parent_total)) %>%
+  gt() %>%
+  fmt_number(columns = vars(perc_lone_parent_total), decimals = 0) %>%
+  tab_header(
+     title = "Areas in Aberdeen with most lone parents") %>%
+   cols_label(
+     DZname = "Data Zone",
+     Total_population = "Population",
+     perc_lone_parent_total = "Lone parents (%)",
+     SIMD2020v2_Decile = "Deprivation decile") %>%
+   tab_options(data_row.padding = px(1)) 
+```
+
+```{r, echo = F}
+grampian %>%
+  filter(Council_area == "Aberdeenshire") %>%
+  select(DZname, Total_population, perc_lone_parent_total, SIMD2020v2_Decile) %>%
+    filter(perc_lone_parent_total >= 10) %>%
+    arrange(DZname) %>%
+  gt() %>%
+  fmt_number(columns = vars(perc_lone_parent_total), decimals = 0) %>%
+  tab_header(
+     title = "Areas in Aberdeenshire with most lone parents") %>%
+   cols_label(
+     DZname = "Data Zone",
+     Total_population = "Population",
+     perc_lone_parent_total = "Lone parents (%)",
+     SIMD2020v2_Decile = "Deprivation decile") %>%
+   tab_options(data_row.padding = px(1)) 
+```
+
+```{r, echo = F}
+grampian %>%
+  filter(Council_area == "Moray") %>%
+  select(DZname, Total_population, perc_lone_parent_total, SIMD2020v2_Decile) %>%
+    filter(perc_lone_parent_total >= 10) %>%
+    arrange(DZname) %>%
+  gt() %>%
+  fmt_number(columns = vars(perc_lone_parent_total), decimals = 0) %>%
+  tab_header(
+     title = "Areas in Moray with most lone parents") %>%
+   cols_label(
+     DZname = "Data Zone",
+     Total_population = "Population",
+     perc_lone_parent_total = "Lone parents (%)",
+     SIMD2020v2_Decile = "Deprivation decile") %>%
+   tab_options(data_row.padding = px(1))
+```
+
+
+-----
+## Sources  
+
+Lone parent data from the 2011 Census 
+https://www.scotlandscensus.gov.uk/ods-web/data-warehouse.html
+
+Deprivation measures from Scottish Index of Multiple Deprivation 2020 version 2 
+https://www.gov.scot/collections/scottish-index-of-multiple-deprivation-2020/
+
+Shapefiles for mapping from Scottish Government
+https://data.gov.uk/dataset/ab9f1f20-3b7f-4efa-9bd2-239acf63b540/data-zone-boundaries-2011
+
+Code and data at https://github.com/JessButler/travel
+
+Contact jessicabutler@abdn.ac.uk
+
+
