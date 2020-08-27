@@ -1,0 +1,432 @@
+file,topic,population,geography
+QS402SC,Accommodation type - Households,All households,LC
+QS401SC,Accommodation type - People,All people in households,LC
+DC4415SC,Accommodation type by car or van availability by number of people aged 17 or over in household,All households,DC
+LC4415SC,Accommodation type by car or van availability by number of people aged 17 or over in household,All households,LC
+DC4403SC,Accommodation type by household spaces,All household spaces,DC
+LC4403SC,Accommodation type by household spaces,All household spaces,LC
+DC4427SC,Accommodation type by tenure - Households,All households,DC
+LC4427SC,Accommodation type by tenure - Households,All households,LC
+DC4428SC,Accommodation type by tenure - People,All people in households,DC
+LC4428SC,Accommodation type by tenure - People,All people in households,LC
+DC4423SC,Accommodation type by tenure by number of rooms by household size,All households,DC
+LC4423SC,Accommodation type by tenure by number of rooms by household size,All households,DC
+DC4402SC,Accommodation type by type of central heating in household by tenure,All households,DC
+LC4402SC,Accommodation type by type of central heating in household by tenure,All households,LC
+QS110SC,Adult lifestage (alternative adult definition),All people aged 16 and over in households,LC
+KS106SC,Adults not in employment and dependent children and persons with a long-term health problem or disability,All households,LC
+CT_0074_2011,Age by sex,All people,Local Characteristic Postcode Sector
+DC1117SC,Age by sex,All people,DC
+LC1117SC,Age by sex,All people,LC
+CT_0167_2011,"Age by sex, 2011 Output Areas",All people,Output Area
+QS103SC,Age by single year,All people,LC
+QS802SC,Age of arrival in UK,All people,LC
+LC1118SC,Age of youngest dependent child by family type,All families in households,LC
+DC1118SC,Age of youngest dependent child by family type ,All families in households,DC
+DC1119SC,Age of youngest dependent child by household composition,All households,DC
+LC1119SCdz,Age of youngest dependent child by household composition,All households,DZ
+DC1113SC,Age of youngest dependent child by household type,All households,DC
+LC1113SC,Age of youngest dependent child by household type,All households,LC
+KS102SC,Age structure,All people,LC
+QS611SC,Approximated social grade - Household Reference Persons (HRP) aged 16 to 64,All household reference persons aged 16 to 64,LC
+QS613SC,Approximated social grade - People aged 16 to 64,All people aged 16 to 64,LC
+DC6124SC,Approximated social grade by sex by age,All people aged 16 to 64 in households,DC
+LC6124SC,Approximated social grade by sex by age,All people aged 16 to 64 in households,LC
+DC6403SC,Approximated social grade by tenure by car or van availability,All people aged 16 to 64 in households,DC
+LC6403SC,Approximated social grade by tenure by car or van availability,All people aged 16 to 64 in households,LC
+KS404SC,Car or van availability,All households; All cars or vans,LC
+LC3405SC,Car or van availability by long-term health problem or disability by sex,All people in households,LC
+DC3405SC,Car or van availability by long-term health problem or disability by sex by age,All people in households,DC
+DC4109SC,Car or van availability by sex by age,All people in households,DC
+LC4109SC,Car or van availability by sex by age,All people in households,LC
+QS415SC,Central heating,All occupied household spaces,LC
+QS420SC,Communal establishment management and type - Communal establishments,All communal establishments,LC
+QS421SC,Communal establishment management and type - People,All people in communal establishments,LC
+KS405SC,Communal establishment residents,All communal establishment residents (excluding staff and their families),LC
+KS204SC,Country of birth,All people,LC
+QS203SC,Country of birth,All people,LC
+DC2103SC,Country of birth by age,All people,DC
+LC2103SC,Country of birth by age,All people,LC
+DC2802SC,Country of birth by age of arrival in the UK,All people,DC
+LC2802SC,Country of birth by age of arrival in the UK,All people,LC
+DC2213SC,Country of birth by English language skills,All people aged 3 and over,DC
+LC2213SC,Country of birth by English language skills,All people aged 3 and over,LC
+DC2205SC,Country of birth by ethnic group,All people,DC
+LC2205SC,Country of birth by ethnic group,All people,LC
+DC2304SC,Country of birth by Long-term health conditions,All people,DC
+DC2212SC,Country of birth by national identity,All people,DC
+LC2212SC,Country of birth by national identity,All people,LC
+LC2207SC,Country of birth by religion,All people,LC
+DC2207SC,Country of birth by religion by sex,All people,DC
+CT_0161_2011,"Country of birth, Local characteristic postcode sector",All people born in Slovakia and Estonia,Local Characteristic Postcode Sector
+DT102SC,Daytime Population,"All people that work or study in the area, or who are resident in the area but are not working or studying",Output Area
+DC1114SC,Dependent children by family type,All families in households,DC
+LC1114SC,Dependent children by family type,All families in households,LC
+LC1112SC,Dependent children by household type by age,All people aged 16 and over in households,LC
+DC1112SC,Dependent children by household type by sex by age,All people aged 16 and over in households,DC
+QS704SC,Distance travelled to place of study,All people aged 4 and over studying the week before the census,LC
+DC7103SC,Distance travelled to place of study by age,All people aged 4 and over studying the week before the census,DC
+LC7103SC,Distance travelled to place of study by age,All people aged 4 and over studying the week before the census,LC
+LC7702SC,Distance travelled to place of study by method of travel,All people aged 4 and over studying the week before the census,LC
+DC7702SC,Distance travelled to place of study by method of travel by sex,All people aged 4 and over studying the week before the census,DC
+QS703SC,Distance travelled to work,All people aged 16 to 74 in employment the week before the census (excluding full-time students),LC
+LC7102SC,Distance travelled to work by age,All people aged 16 to 74 in employment the week before the census (excluding full-time students),LC
+DC7402SC,Distance travelled to work by car or van availability,All people aged 16 to 74 in households in employment the week before the census (excluding full-time students),DC
+DC7404SCn,Distance travelled to work by car or van availability,People aged 75 and over,SC
+LC7402SC,Distance travelled to work by car or van availability,All people aged 16 to 74 in households in employment the week before the census (excluding full-time students),LC
+DC7106SCn,Distance travelled to work by sex,People aged 75 and over,SC
+DC7102SC,Distance travelled to work by sex by age,All people aged 16 to 74 in employment the week before the census (excluding full-time students),DC
+LC7701SC,Distance travelled to work or place of study by method of travel,All people aged 4 and over studying or aged 16 to 74 in employment the week before the census,LC
+DC7701SC,Distance travelled to work or place of study by method of travel by sex,All people aged 4 and over studying or aged 16 to 74 in employment the week before the census,DC
+QS418SC,Dwellings,All dwellings,LC
+KS401SC,"Dwellings, household spaces and accommodation type",All dwellings; All household spaces,LC
+KS601SC,Economic activity,All people aged 16 to 74,LC
+QS601SC,Economic activity,All people aged 16 to 74,LC
+KS603SC,Economic activity - Females,All females aged 16 to 74,LC
+QS603SC,Economic activity - Full-time students,All full-time students aged 16 to 74,LC
+KS602SC,Economic Activity - Males,All males aged 16 to 74,LC
+AT_180_2011,"Economic Activity - proportion of all 16 to 19 year olds Not in Education, Employment or Training, Intermediate Zone 2011",All people aged 16 to 19,Datazone
+LC6107SC,Economic activity by age,All people aged 16 and over,LC
+LC6404SC,Economic activity by car or van availability,All people aged 16 and over in households,LC
+DC6405SC,Economic activity by car or van availability by method of travel to work or study,All people aged 16 and over in households working or studying in the week before the census,DC
+LC6405SC,Economic activity by car or van availability by method of travel to work or study,All people aged 16 and over in households working or studying in the week before the census,LC
+DC6404SC,Economic activity by car or van availability by sex,All people aged 16 and over in households,DC
+DC6210SC,Economic activity by country of birth,All people aged 16 and over,DC
+LC6210SC,Economic activity by country of birth,All people aged 16 and over,LC
+LC6201SC,Economic activity by ethnic group,All people aged 16 and over,LC
+DC6201SC,Economic activity by ethnic group by sex by age,All people aged 16 and over,DC
+DC6401SC,Economic activity by living arrangements,All people aged 16 and over in households,DC
+LC6401SC,Economic activity by living arrangements,All people aged 16 and over in households,LC
+DC6302SC,Economic activity by long-term health problem or disability,All people aged 16 and over,DC
+LC6302SC,Economic activity by long-term health problem or disability,All people aged 16 and over,LC
+DC6301SC,Economic activity by provision of unpaid care by general health,All people aged 16 and over,DC
+LC6301SC,Economic activity by provision of unpaid care by general health,All people aged 16 and over,LC
+LC6128SC,Economic activity by sex,All people aged 16 and over,LC
+DC6107SC,Economic activity by sex by age,All people aged 16 and over,DC
+LC6129SCdz,Economic activity by sex by age,All people aged 16 and over,DZ
+DC6305SC,Economic activity by unpaid carers by general health and provision of care,All people aged 16 and over in households,DC
+LC6305SC,Economic activity by unpaid carers by general health and provision of care,All people aged 16 and over in households,LC
+LC6108SC,Economic activity of full-time students by student accommodation,All full-time students aged 16 and over,LC
+DC6108SC,Economic activity of full-time students by student accommodation by age,All full-time students aged 16 and over,DC
+QS602SC,Economic activity of Household Reference Person (HRP),All household reference persons aged 16 to 74,LC
+QS213SC,English language skills,All people aged 3 and over,LC
+LC2122SC,English language skills by age,All people aged 3 and over,LC
+DC2122SC,English language skills by sex by age,All people aged 3 and over,DC
+KS201SC,Ethnic group,All people,LC
+CT_0146_2011,Ethnic group by age,All people,Output Area
+LC2101SC,Ethnic group by age,All people,LC
+DC2801SC,Ethnic group by age of arrival in the UK,All people,DC
+LC2801SC,Ethnic group by age of arrival in the UK,All people,LC
+DC2301SC,Ethnic group by provision of unpaid care by general health,All people,DC
+LC2301SC,Ethnic group by provision of unpaid care by general health,All people,LC
+DC2201SC,Ethnic group by religion,All people,DC
+LC2201SC,Ethnic group by religion,All people,LC
+CT_0164_2011,Ethnic group by sex by age,All people ,Intermediate zone
+DC2101SC,Ethnic group by sex by age,All people,DC
+CT_0098_2011,Ethnic group by tenure,All people in households,Datazone
+QS118SC,Families with dependent children,All families in households; All dependent children in households,LC
+DC1110SC,Family composition by age of Family Reference Person (FRP) ,All families in households,DC
+LC1110SCdz,Family composition by age of Family Reference Person (FRP) ,All families in households,DZ
+LC1601SC,Family status by number of parents working by dependent children in family,All parents aged 16 and over with dependent children,LC
+DC1601SCca,Family status by number of parents working by dependent children in family by economic activity,All parents aged 16 and over with dependent children,DC
+LC6111SC,Former industry by age,All people aged 16 to 74 not in employment the week before the census,LC
+DC6130SCn,Former industry by sex,People aged 75 and over,SC
+LC6119SC,Former industry by sex,All people aged 16 to 74 not in employment the week before the census,LC
+DC6111SC,Former industry by sex by age,All people aged 16 to 74 not in employment the week before the census,DC
+LC6113SC,Former occupation by age,All people aged 16 to 74 not in employment the week before the census,LC
+LC6123SC,Former occupation by sex,All people aged 16 to 74 not in employment the week before the census,LC
+DC6113SC,Former occupation by sex by age,All people aged 16 to 74 not in employment,DC
+CT_0112_2011,"Full-time students living away from home during term time by sex by age, datazone",All  full-time students aged 16 to 21  living away from home during term time,Datazone
+QS211SC,Gaelic language skills,All people aged 3 and over,LC
+LC2120SCdz,Gaelic language skills by age,All people aged 3 and over,DZ
+DC2120SC,Gaelic language skills by sex by age,All people aged 3 and over,DC
+QS302SC,General health,All people,LC
+LC3102SC,General health by age,All people,LC
+CT_0033d_2011,General health by age by sex,All people in households,Datazone
+LC3206SC,General health by ethnic group by age,All people,LC
+LC3403SC,General health by long-term health problem or disability by occupancy rating (rooms),All people in households,LC
+DC3403SC,General health by long-term health problem or disability by occupancy rating (rooms) by age,All people in households,DC
+LC3601SC,General health by National Statistics Socio-economic Classification (NS-SeC),All people aged 16 to 74,LC
+DC3601SC,General health by National Statistics Socio-economic Classification (NS-SeC) by sex by age,All people aged 16 to 74,DC
+DC3102SC,General health by sex by age,All people,DC
+KS301SCa,Health and provision of unpaid care (UK harmonised),All people,LC
+KS301SCb,Health and provision of unpaid care (UK harmonised),All people,LC
+QS501SC,Highest level of qualification,All people aged 16 and over,LC
+LC5601SC,Highest level of qualification by economic activity,All people aged 16 and over,LC
+DC5601SC,Highest level of qualification by economic activity by age,All people aged 16 and over,DC
+LC5202SC,Highest level of qualification by ethnic group,All people aged 16 and over,LC
+DC5202SC,Highest level of qualification by ethnic group by age,All people aged 16 and over,DC
+DC5103SC,Highest level of qualification by household composition,All people aged 16 and over in households,DC
+LC5103SC,Highest level of qualification by household composition,All people aged 16 and over in households,LC
+DC5802SC,Highest level of qualification by length of residence in the UK,All people aged 16 and over,DC
+LC5802SC,Highest level of qualification by length of residence in the UK,All people aged 16 and over,LC
+DC5102SC,Highest level of qualification by sex by age,All people aged 16 and over,DC
+LC5102SC,Highest level of qualification by sex by age,All people aged 16 and over,LC
+KS604SCb,Hours worked,All people aged 16 to 74 in employment the week before the census,LC
+QS604SCb,Hours worked,All people aged 16 to 74 in employment the week before the census,LC
+KS604SCa,Hours worked (UK harmonised),All people aged 16 to 74 in employment the week before the census,LC
+QS604SCa,Hours worked (UK harmonised),All people aged 16 to 74 in employment the week before the census,LC
+DC6109SC,Hours worked by sex by age,All people aged 16 to 74 in employment the week before the census,DC
+LC6109SC,Hours worked by sex by age,All people aged 16 to 74 in employment the week before the census,LC
+KS105SC,Household composition,All households,LC
+QS113SC,Household composition - Households,All households,LC
+QS112SC,Household composition - People,All people in households,LC
+QS115SC,Household composition (alternative child and adult definitions) - Households,All households,LC
+QS114SC,Household composition (alternative child and adult definitions) - People,All people in households,LC
+LC1109SC,Household composition by age,All people in households,LC
+DC6127SC,Household composition by approximated social grade of Household Reference Person (HRP),All households where household reference person is aged 16 to 64,DC
+DC1401SC,Household composition by car or van availability,All households,DC
+LC1401SC,Household composition by car or van availability,All households,LC
+DC1201SC,Household composition by ethnic group of Household Reference Person (HRP),All households,DC
+LC1201SC,Household composition by ethnic group of Household Reference Person (HRP),All households,LC
+DC1301SC,Household composition by number of people in household with a long-term health problem or disability,All households,DC
+LC1301SC,Household composition by number of people in household with a long-term health problem or disability,All households,LC
+DC1109SC,Household composition by sex by age,All people in households,DC
+DC1403SC,Household composition by type of central heating in household ,All households,DC
+LC1403SC,Household composition by type of central heating in household ,All households,LC
+QS111SC,Household lifestage,All households,LC
+CT_0064m_2011,Household migration by ethnicity of household reference person,All people,Datazone
+CT_0168_2011,Household migration by ethnicity of household reference person,All households,Datazone
+CT_0064l_2011,Household migration by National statistics socio-economic classification of household reference person ,All people,Datazone
+CT_0064n_2011,Household migration by religion of household reference person,All people,Datazone
+QS406SC,Household size,All occupied household spaces,LC
+QS417SC,Household spaces,All household spaces,LC
+QS116SC,Household type,All households,LC
+QS119SC,Households by deprivation dimensions,All households,LC
+DC3306SC,Households with a person with a long-term health problem or disability and their age by number of unpaid carers in household and economic activity,All households,DC
+LC3306SC,Households with a person with a long-term health problem or disability and their age by number of unpaid carers in household and economic activity,All households,LC
+DC1120SC,Households with schoolchildren and full-time students living away from home during term time by age and number of schoolchildren or students,All households with schoolchildren and full-time students aged 4 and over living away from home during term time,DC
+KS605SC,Industry,All people aged 16 to 74 in employment the week before the census,LC
+QS605SC,Industry,All people aged 16 to 74 in employment the week before the census,LC
+KS607SC,Industry - Females,All females aged 16 to 74 in employment the week before the census,LC
+KS606SC,Industry - Males,All males aged 16 to 74 in employment the week before the census,LC
+LC6110SC,Industry by age,All people aged 16 to 74 in employment the week before the census,LC
+DC6602SC,Industry by economic activity,All people aged 16 to 74 in employment the week before the census,DC
+DC6608SCn,Industry by economic activity,People aged 75 and over,SC
+LC6602SC,Industry by economic activity,All people aged 16 to 74 in employment the week before the census,LC
+DC6222SCn,Industry by ethnic group,People aged 75 and over,SC
+DC6224SCn,Industry by ethnic group,People aged 75 and over,SC
+LC6211SC,Industry by ethnic group,All people aged 16 to 74 in employment the week before the census,LC
+DC6211SC,Industry by ethnic group by age,All people aged 16 to 74 in employment the week before the census,DC
+DC6216SC,Industry by ethnic group by sex,All people aged 16 to 74 in employment the week before the census,DC
+CT_0107_2011,Industry by occupation by tenure by local character postcode sector,All people aged 16 and over in households and in  employment the week before the census,Local Characteristic Postcode Sector
+DC6129SCn,Industry by sex,People aged 75 and over,SC
+LC6118SC,Industry by sex,All people aged 16 to 74 in employment the week before the census,LC
+DC6110SC,Industry by sex by age,All people aged 16 to 74 in employment the week before the census,DC
+KS206SC,Language,All people aged 3 and over,LC
+LC2119SC,Language other than English used at home by age,All people aged 3 and over,LC
+DC2119SC,Language other than English used at home by sex by age,All people aged 3 and over,DC
+CT_0267_2011,Language used at home ,All people aged 3 and over,Datazone 2011
+QS803SC,Length of residence in the UK,All people,LC
+DC2406SC,Length of residence in the UK by car or van availability,All people in households,DC
+LC2406SC,Length of residence in the UK by car or van availability,All people in households,LC
+DC2408SC,Length of residence in the UK by household size,All people in households,DC
+LC2408SC,Length of residence in the UK by household size,All people in households,LC
+DC2409SC,Length of residence in the UK by household type,All people in households,DC
+LC2409SC,Length of residence in the UK by household type,All people in households,LC
+DC2410SC,Length of residence in the UK by number of rooms,All people in households,DC
+LC2410SC,Length of residence in the UK by number of rooms,All people in households,LC
+DC2407SC,Length of residence in the UK by tenure,All people in households,DC
+LC2407SC,Length of residence in the UK by tenure ,All people in households,LC
+KS104SC,Living arrangements,All people aged 16 and over in households,LC
+QS108SC,Living arrangements,All people aged 16 and over in households,LC
+LC1108SC,Living arrangements by age,All people aged 16 and over in households,LC
+LC1102SC,Living arrangements by age - Household Reference Persons (HRPs),All household reference persons,LC
+DC1102SC,Living arrangements by sex by age,All household reference persons,DC
+DC1108SC,Living arrangements by sex by age,All people aged 16 and over in households,DC
+DC1402SC,Living arrangements by tenure by age of student,All full-time students aged 16 and over,DC
+DC4112SC,Living arrangements of young adults by sex,All people aged 20 to 34 in households or educational establishments,DC
+KS107SC,Lone parent households with dependent children,All lone parent households with dependent children where the lone parent is aged 16 to 74,LC
+CT_0033e_2011,Long term health problem or disability,All people in households,Datazone
+CT_0033f_2011,Long-term health condition by age by sex,All people in households,Datazone
+QS304SC,Long-term health conditions,All people,LC
+DC3310SC,Long-term health conditions by general health,All people,DC
+DC3501SC,Long-term health conditions by highest qualification,All people aged 16 and over,DC
+DC3208SC,Long-term health conditions by language other than English used at home,All people aged 3 and over,DC
+DC3106SC,Long-term health conditions by sex by age,All people,DC
+DC3407SC,Long-term health conditions by tenure,All people in households,DC
+QS303SC,Long-term health problem or disability,All people,LC
+LC3101SC,Long-term health problem or disability by age,All people,LC
+LC3205SC,Long-term health problem or disability by ethnic group by age,All people,LC
+LC3302SC,Long-term health problem or disability by general health by age,All people in households,LC
+DC3201SC,Long-term health problem or disability by general health by ethnic group by sex by age,All people,DC
+DC3302SC,Long-term health problem or disability by general health by sex by age,All people in households,DC
+LC3602SC,Long-term health problem or disability by National Statistics Socio-economic Classification (NS-SeC) by age,All people aged 16 to 74,LC
+DC3602SC,Long-term health problem or disability by National Statistics Socio-economic Classification (NS-SeC) by sex by age,All people aged 16 to 74,DC
+DC3101SC,Long-term health problem or disability by sex by age,All people,DC
+KS103SC,Marital and civil partnership status,All people aged 16 and over,LC
+LC1107SC,Marital and civil partnership status by age,All people aged 16 and over,LC
+DC1101SC,Marital and civil partnership status by sex by age,All household reference persons,DC
+DC1107SC,Marital and civil partnership status by sex by age,All people aged 16 and over,DC
+LC1101SC,Marital and civil partnership status by sex by age - Household Reference Persons (HRPs),All household reference persons,LC
+DC7104SC,Method of travel to study by age,All people aged 4 and over studying the week before the census,DC
+LC7104SC,Method of travel to study by age,All people aged 4 and over studying the week before the census,LC
+QS701SC,Method of travel to work,All people aged 16 to 74 in employment the week before the census (excluding full-time students),LC
+LC7101SC,Method of travel to work by age,All people aged 16 to 74 in employment the week before the census (excluding full-time students),LC
+DC7105SCn,Method of travel to work by sex,People aged 75 and over,SC
+DC7101SC,Method of travel to work by sex by age,All people aged 16 to 74 in employment the week before the census (excluding full-time students),DC
+QS702SC,Method of travel to work or study,All people aged 4 and over who are studying or aged 16 to 74 in employment the week before the census,LC
+DC7403SC,Method of travel to work or study by number of people working or studying in household by car or van availability,All households with at least one person working or studying,DC
+LC7403SC,Method of travel to work or study by number of people working or studying in household by car or van availability,All households with at least one person working or studying,LC
+CT_0064b_2011,Migration by age,All people,Datazone
+CT_0064a_2011,Migration by data zones,All people,Datazone
+CT_0064f_2011,Migration by economic activity,All people,Datazone
+CT_0064c_2011,Migration by ethnicity,All people,Datazone
+CT_0064i_2011,Migration by ethnicity,All people,Datazone
+CT_0064h_2011,Migration by highest level of qualification,All people,Datazone
+CT_0064g_2011,Migration by National statistics socio-economic classification,All people,Datazone
+CT_0064e_2011,Migration by religion,All people,Datazone
+CT_0064j_2011,Migration by religion,All people,Datazone
+CT_0064d_2011,Migration by tenure,All people,Datazone
+CT_0064k_2011,Migration of household by tenure,All people,Datazone
+QS202SC,Multiple ethnic groups,All households,LC
+KS202SC,National identity,All people,LC
+DC2202SC,National identity by ethnic group,All people,DC
+LC2202SC,National identity by ethnic group,All people,LC
+DC2204SC,National identity by religion,All people,DC
+LC2204SC,National Identity by religion,All people,LC
+DC2102SC,National identity by sex by age,All people,DC
+LC2102SC,National identity by sex by age,All people,LC
+KS611SC,National Statistics Socio-economic Classification (NS-SeC),All people aged 16 to 74,LC
+QS607SC,National Statistics Socio-economic Classification (NS-SeC),All people aged 16 to 74,LC
+KS613SC,National Statistics Socio-economic Classification (NS-SeC) - Females,All females aged 16 to 74,LC
+KS612SC,National Statistics Socio-economic Classification (NS-SeC) - Males,All males aged 16 to 74,LC
+LC6114SC,National Statistics Socio-economic Classification (NS-SeC) by age,All people aged 16 to 74,LC
+LC6101SC,National Statistics Socio-economic Classification (NS-SeC) by age - Household Reference Persons (HRPs),All household reference persons aged 16 to 74,LC
+LC7608SC,National Statistics Socio-economic Classification (NS-SeC) by distance travelled to work or place of study,All people aged 16 and over who are studying or aged 16 to 74 in employment the week before the census,LC
+DC7608SC,National Statistics Socio-economic Classification (NS-SeC) by distance travelled to work or place of study by sex,All people aged 16 and over studying or aged 16 to 74 in employment the week before the census,DC
+DC6611SCn,National Statistics Socio-economic Classification (NS-SeC) by economic activity,People aged 75 and over,SC
+LC6606SC,National Statistics Socio-economic Classification (NS-SeC) by economic activity,All people aged 16 to 74,LC
+DC6606SC,National Statistics Socio-economic Classification (NS-SeC) by economic activity by sex,All people aged 16 to 74,DC
+DC6221SCn,National Statistics Socio-economic Classification (NS-SeC) by ethnic group,People aged 75 and over,SC
+LC6206SC,National Statistics Socio-economic Classification (NS-SeC) by ethnic group,All people aged 16 to 74,LC
+DC6206SC,National Statistics Socio-economic Classification (NS-SeC) by ethnic group by sex by age,All people aged 16 to 74,DC
+DC6504SCn,National Statistics Socio-economic Classification (NS-SeC) by highest level of qualification,People aged 75 and over,SC
+LC6502SC,National Statistics Socio-economic Classification (NS-SeC) by highest level of qualification,All people aged 16 to 74,LC
+DC6502SC,National Statistics Socio-economic Classification (NS-SeC) by highest level of qualification by age,All people aged 16 to 74,DC
+LC7604SC,National Statistics Socio-economic Classification (NS-SeC) by method of travel to work or study,All people aged 16 and over who are studying or aged 16 to 74 in employment the week before the census,LC
+DC7604SC,National Statistics Socio-economic Classification (NS-SeC) by method of travel to work or study by sex,All people aged 16 and over studying or aged 16 to 74 in employment the week before the census,DC
+DC6133SCn,National Statistics Socio-economic Classification (NS-SeC) by sex,People aged 75 and over,SC
+LC6121SC,National Statistics Socio-economic Classification (NS-SeC) by sex,All people aged 16 to 74,LC
+DC6114SC,National Statistics Socio-economic Classification (NS-SeC) by sex by age,All people aged 16 to 74,DC
+DC6101SC,National Statistics Socio-economic Classification (NS-SeC) by sex by age - Household Reference Persons (HRPs),All household reference persons aged 16 to 74,DC
+DC6402SC,National Statistics Socio-economic Classification (NS-Sec) by tenure,All people aged 16 to 74 in households,DC
+DC6406SCn,National Statistics Socio-economic Classification (NS-SeC) by tenure,People aged 75 and over,SC
+LC6402SC,National Statistics Socio-economic Classification (NS-Sec) by tenure,All people aged 16 to 74 in households,LC
+QS609SC,National Statistics Socio-economic Classification (NS-SeC) of Household Reference Person (HRP) - All people,All people in households,LC
+QS608SC,National Statistics Socio-economic Classification (NS-SeC) of Household Reference Person (HRP) - People aged under 65,All people aged under 65 in households,LC
+QS610SC,National Statistics Socio-economic Classification (NS-SeC) of Household Reference Person (HRP) aged under 65,All people in households where HRP is aged under 65,LC
+DC6102SC,National Statistics Socio-economic Classification (NS-SeC) of Household Reference Person (HRP) by age and number of schoolchildren or students living away from home (1) during term-time,All households with schoolchildren or full-time students aged 4 and over living away during term-time,DC
+LC6115SC,National Statistics Socio-economic Classification (NS-SeC) of Household Reference Person (HRP) by household composition,All household reference persons aged 16 to 74,LC
+DC6115SC,National Statistics Socio-economic Classification (NS-SeC) of Household Reference Person (HRP) by household composition by sex,All household reference persons aged 16 to 74,DC
+DC6134SCn,National Statistics Socio-economic Classification (NS-SeC) of Household Reference Person (HRP) by household composition by sex,Household reference persons aged 75 and over,SC
+QS407SC,Number of rooms,All occupied household spaces,LC
+QS408SC,Occupancy rating (rooms),All households,LC
+LC4104SC,Occupancy rating (rooms) by household composition,All households,LC
+KS608SC,Occupation,All people aged 16 to 74 in employment the week before the census,LC
+QS606SC,Occupation,All people aged 16 to 74 in employment the week before the census,LC
+KS610SC,Occupation - Females,All females aged 16 to 74 in employment the week before the census,LC
+KS609SC,Occupation - Males,All males aged 16 to 74 in employment the week before the census,LC
+LC6112SC,Occupation by age,All people aged 16 to 74 in employment the week before the census,LC
+DC6607SCn,Occupation by economic activity,People aged 75 and over,SC
+LC6601SC,Occupation by economic activity,All people aged 16 to 74 in employment the week before the census,LC
+DC6601SC,Occupation by economic activity by sex,All people aged 16 to 74 in employment the week before the census,DC
+LC6213SC,Occupation by ethnic group,All people aged 16 to 74 in employment the week before the census,LC
+DC6223SCn,Occupation by ethnic group by sex,People aged 75 and over,SC
+DC6213SC,Occupation by ethnic group by sex by age,All people aged 16 to 74 in employment the week before the census,DC
+DC6503SCn,Occupation by highest level of qualification,People aged 75 and over,SC
+LC6501SC,Occupation by highest level of qualification,All people aged 16 to 74 in employment the week before the census,LC
+DC6501SC,Occupation by highest level of qualification by age,All people aged 16 to 74 in employment the week before the census,DC
+LC6605SC,Occupation by hours worked,All people aged 16 to 74 in employment the week before the census,LC
+DC6605SC,Occupation by hours worked by sex,All people aged 16 to 74 in employment the week before the census,DC
+DC6610SCn,Occupation by hours worked by sex,People aged 75 and over,SC
+DC6604SC,Occupation by industry,All people aged 16 to 74 in employment the week before the census,DC
+DC6609SCn,Occupation by industry,People aged 75 and over,SC
+LC6604SC,Occupation by industry,All people aged 16 to 74 in employment the week before the census,LC
+DC6131SCn,Occupation by sex,People aged 75 and over,SC
+LC6120SC,Occupation by sex,All people aged 16 to 74 in employment the week before the census,LC
+DC6112SC,Occupation by sex by age,All people aged 16 to 74 in employment the week before the census,DC
+CT_0044a_2011,"Occupation, Selected intermediate zones",All people aged 16 to 74 in employment the week before the census,Datazone
+QS117SC,People aged 18 to 64 living in a one adult household,All people aged 18 to 64 in households,LC
+CT_0142b_2011,People aged 65 and over living alone by age - 2011 data zones,All people aged 65 and over in households,Datazone
+QS409SC,Persons per room - Households,All households,LC
+QS410SC,Persons per room - People,All people in households,LC
+QS102SC,Population density,All people,LC
+QS419SC,Position in communal establishment,All people in communal establishments,LC
+QS205SC,Proficiency in English,All people aged 3 and over,LC
+LC2105SC,Proficiency in English by age,All people aged 3 and over,LC
+DC2803SC,Proficiency in English by age of arrival in the UK,All people aged 3 and over,DC
+LC2803SC,Proficiency in English by age of arrival in the UK,All people aged 3 and over,LC
+DC2105SC,Proficiency in English by sex by age,All people aged 3 and over,DC
+QS301SCb,Provision of unpaid care,All people,LC
+QS301SCa,Provision of unpaid care (UK harmonised),All people,LC
+LC3103SCdz,Provision of unpaid care by age,All people,DZ
+DC3105SC,Provision of unpaid care by dependent children in family by family status,All people in families,DC
+LC3105SC,Provision of unpaid care by dependent children in family by family status,All people in families,LC
+DC3301SC,Provision of unpaid care by general health by age,All people in households,DC
+LC3301SC,Provision of unpaid care by general health by age,All people in households,LC
+DC3305SC,Provision of unpaid care by long-term health conditions by age,All people,DC
+DC3103SC,Provision of unpaid care by sex by age,All people,DC
+KS501SC,Qualifications and students,All people aged 16 and over,LC
+KS209SCb,Religion,All people,LC
+KS209SCa,Religion (UK harmonised),All people,LC
+DC2107SC,Religion by sex by age,All people,DC
+LC2107SC,Religion by sex by age,All people,LC
+QS101SC,Residence type,All people,LC
+DC1104SC,Residence type by sex by age,All people,DC
+LC1104SC,Residence type by sex by age,All people,LC
+QS105SC,Schoolchildren and full-time students living away from home during term time,All schoolchildren and full-time students aged 4 and over living away from home during term time,LC
+DC1106SC,Schoolchildren and full-time students living away from home during term time by sex by age,All schoolchildren and full-time students aged 4 and over living away from home during term time,DC
+QS212SC,Scots language skills,All people aged 3 and over,LC
+DC2121SC,Scots language skills by sex by age,All people aged 3 and over,DC
+LC2121SC,Scots language skills by sex by age,All people aged 3 and over,LC
+QS104SC,Sex,All people,LC
+KS402SC,Tenure,All households,LC
+QS404SC,Tenure - Household Reference Persons (HRP) aged 65 and over - Households,All households where the Household Reference Person is aged 65 and over,LC
+QS405SC,Tenure - Households,All households,LC
+QS403SC,Tenure - People,All people in households,LC
+DC4111SC,Tenure by age of Household Reference Person (HRP),All household reference persons,DC
+DC4609SC,Tenure by car or van availability by economic activity,All people aged 16 and over in households,DC
+LC4609SC,Tenure by car or van availability by economic activity,All people aged 16 and over in households,LC
+DC4203SC,Tenure by car or van availability by ethnic group,All people in households,DC
+LC4203SC,Tenure by car or van availability by ethnic group ,All people in households,LC
+DC4202SC,Tenure by car or van availability by ethnic group of Household Reference Person (HRP),All households,DC
+LC4202SC,Tenure by car or van availability by ethnic group of Household Reference Person (HRP),All households,LC
+DC4416SC,Tenure by car or van availability by number of people aged 17 or over in household,All households,DC
+LC4416SC,Tenure by car or van availability by number of people aged 17 or over in household,All households,LC
+LC4601SC,Tenure by economic activity - Household Reference Persons (HRPs),All household reference persons aged 16 and over,LC
+DC4601SC,Tenure by economic activity by age - Household Reference Persons (HRPs),All household reference persons aged 16 and over,DC
+DC4302SC,Tenure by general health by long-term health problem or disability by age ,All people in households,DC
+LC4302SC,Tenure by general health by long-term health problem or disability by age ,All people in households,LC
+LC4429SCdz,Tenure by household size by age of Household Reference Person (HRP),All households,DZ
+DC4404SC,Tenure by household size by number of rooms,All households,DC
+LC4404SC,Tenure by household size by number of rooms,All households,LC
+LC4605SC,Tenure by National Statistics Socio-economic Classification (NS-SeC) - Household Reference Persons (HRPs),All household reference persons aged 16 to 74,LC
+DC4605SC,Tenure by National Statistics Socio-economic Classification (NS-SeC) by age - Household Reference Persons (HRPs),All household reference persons aged 16 to 74,DC
+DC4406SC,Tenure by number of persons per room in household by accommodation type,All households,DC
+LC4406SC,Tenure by number of persons per room in household by accommodation type,All households,LC
+DC4106SC,Tenure by occupancy rating (rooms),All households,DC
+LC4106SC,Tenure by occupancy rating (rooms),All households,LC
+DC4104SC,Tenure by occupancy rating (rooms) by household composition,All households,DC
+DC4113SC,Tenure by sex by age,All people in households,DC
+DC4426SC,Tenure by type of central heating in household by household composition,All households,DC
+LC4426SC,Tenure by type of central heating in household by household composition,All households,LC
+CT_0043_2011,Type of central heating in household by accomodation type,All occupied household spaces,Output Area
+DC4304SC,Type of central heating in household by general health by long-term health problem or disability,All people in households,DC
+LC4304SC,Type of central heating in household by general health by long-term health problem or disability,All people in households,LC
+DC4410SC,Type of central heating in household by occupancy rating (rooms) by age,All people in households,DC
+LC4410SC,Type of central heating in household by occupancy rating (rooms) by age,All people in households,LC
+DC4420SC,Type of central heating in household by occupancy rating (rooms) by ethnic group,All people in households,DC
+LC4420SC,Type of central heating in household by occupancy rating (rooms) by ethnic group,All people in households,LC
+DC4418SC,Type of central heating in household by occupancy rating (rooms) by ethnic group of Household Reference Person (HRP),All households,DC
+LC4418SC,Type of central heating in household by occupancy rating (rooms) by ethnic group of Household Reference Person (HRP),All households,LC
+KS101SC,Usual resident population,All people,LC
+WP101SCoa,Workplace population,All people aged 16 to 74 in employment in the area the week before the census,Output Area
+QS612SC,Year last worked,All people aged 16 to 74,LC
+LC6116SC,Year last worked by age,All people aged 16 to 74,LC
+DC6135SCn,Year last worked by sex,People aged 75 and over,SC
+LC6122SC,Year last worked by sex,All people aged 16 to 74,LC
+DC6116SC,Year last worked by sex by age,All people aged 16 to 74,DC
+QS801SC,Year of arrival in UK,All people,LC
+DC6126SC,Youngest dependent child by approximated social grade of Household Reference Person (HRP),All households where household reference person is aged 16 to 64,DC
+LC6126SC,Youngest dependent child by approximated social grade of Household Reference Person (HRP),All households where household reference person is aged 16 to 64,LC
