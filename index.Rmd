@@ -11,6 +11,7 @@ library(sf)
 library(gt)
 library(cowplot)
 library(plotly)
+library(patchwork)
 
 theme_set(theme_cowplot())
 ```
@@ -83,229 +84,147 @@ grampian_sf <-
 
 ```
 
-## 1. Children in Grampian
-### Grampian includes three local authorities
-Aberdeen City has more people of working age, but all three local authorities have similar populations of children and young children.
 
-```{r, echo = F}
+### How many households have children?  
+<br></br>
+```{r, echo = F, message = F}
 la_numbers <-
 grampian %>%
   group_by(LAname) %>%
   summarise(
-    n_households = sum(all_households),
     total_population = sum(Total_population),
-    total_working_age = sum(Working_age_population),
-    prop_working_age = total_working_age/total_population,
-    total_dependent_children = sum(dependent_children_in_household_all_ages),
-    prop_dependent_children = total_dependent_children/total_population,
-    total_under_5 = sum(dependent_children_in_household_aged_0_to_4),
-    prop_under_5 = total_under_5/total_population) 
+    n_households = sum(all_households),
+    households_dependent_children = sum(dependent_children_in_household_all_ages),
+    prop_dependent_children = households_dependent_children/n_households,
+    households_under_5 = sum(dependent_children_in_household_aged_0_to_4),
+    prop_under_5 = households_under_5/n_households) 
 
 grampian %>%
-  summarise(n_households = sum(all_households),
+  summarise(
     total_population = sum(Total_population),
-    total_working_age = sum(Working_age_population),
-    prop_working_age = total_working_age/total_population,
-    total_dependent_children = sum(dependent_children_in_household_all_ages),
-    prop_dependent_children = total_dependent_children/total_population,
-    total_under_5 = sum(dependent_children_in_household_aged_0_to_4),
-    prop_under_5 = total_under_5/total_population)  %>%
-  add_column(LAname = "Grampian", .before = "n_households") %>%
+    n_households = sum(all_households),
+    households_dependent_children = sum(dependent_children_in_household_all_ages),
+    prop_dependent_children = households_dependent_children/n_households,
+    households_under_5 = sum(dependent_children_in_household_aged_0_to_4),
+    prop_under_5 = households_under_5/n_households)  %>%
+  add_column(LAname = "Grampian", .before = "total_population") %>%
   bind_rows(la_numbers) %>%
   arrange(desc(n_households)) %>%
   gt() %>%
-  fmt_number(columns = vars(n_households, total_population, total_working_age, total_dependent_children, total_under_5), decimals = 0) %>%
-  fmt_percent(columns = vars(prop_working_age, prop_dependent_children, prop_under_5), decimals = 0) %>%
-  cols_label(LAname = "", n_households = "Households", total_population = "Population", total_working_age = "Working age", total_dependent_children = "Dependent children", total_under_5 = "Children under 5", prop_working_age = "", prop_dependent_children = "", prop_under_5 = "") %>%
+  fmt_number(columns = vars(n_households, total_population, households_dependent_children, households_under_5), decimals = 0) %>%
+  fmt_percent(columns = vars(prop_dependent_children, prop_under_5), decimals = 0) %>%
+  cols_label(LAname = "", n_households = "Households", total_population = "Population", households_dependent_children = "Households with dependent children", households_under_5 = "Households with children under 5", prop_dependent_children = "", prop_under_5 = "") %>%
   tab_options(data_row.padding = 0)
 
 ```
+<br></br>  
+<br></br>  
 
-## 2. Young children and deprivation 
-**Mouseover or click points for area names**
-Households in more deprived areas have more young children per household on average.  
-The areas with the most young children per household are in the less deprived areas.
+### Which neighbourhoods have the most households with children?
+**Hover or click to see neighbourhood's name**  
+grey line shows Grampian median
+```{r, echo=F}
+p1 <-
+grampian %>%
+  ggplot(aes(label = DZname, x = LAname, y = round(100*prop_dependent_children_in_household_all_ages, 0))) +
+  geom_hline(yintercept = median(grampian$prop_dependent_children_in_household_all_ages)*100, color = "gray80", size = 0.2) +
+  geom_jitter(alpha = 0.2, width = 0.2) +
+  ylim(0, 80) +
+  labs(y = "households with children (%)\n") +
+  theme(
+    axis.ticks.x = element_blank(),
+    axis.title.x  = element_blank(),
+    axis.text.y = element_text(size = 10)
+  )
+  #annotate("text", x = "Moray", y = 20, label = "Grampian median", size = 3, vjust = -2, hjust = -0.7)+
+  #scale_x_discrete(expand = expansion(add = 1))
 
-```{r}
-p2 <-
+ggplotly(p1, tooltip = "label")
+```
+
+
+### Do more deprived neighbourhoods have more households with children?
+**Hover or click to see neighbourhood's name**  
+grey lines show Grampian medians
+```{r, echo = F}
+p3 <-
   grampian %>%
   ggplot(
     aes(x = SIMD2020v2_Rank,
-        y = prop_dependent_children_in_household_aged_0_to_4,
+        y = round(prop_dependent_children_in_household_all_ages *100, 0),
         label = DZname)
   ) +
   geom_point(alpha = 0.3) +
-  geom_vline(xintercept = median(grampian$SIMD2020v2_Rank)) +
-  geom_hline(yintercept = median(grampian$prop_dependent_children_in_household_aged_0_to_4)) +
+  geom_vline(xintercept = median(grampian$SIMD2020v2_Rank), size = 0.2, color = "grey70") +
+  geom_hline(yintercept = median(grampian$prop_dependent_children_in_household_all_ages*100), size = 0.2, color = "grey70") +
   scale_x_reverse() +
-  ylim(0, 0.55) +
-  labs(x = "Deprivation", y = "children under 5 per household\n") +
+  labs(x = "Deprivation", y = "households with children (%)\n") +
   theme(
-    legend.position = "none",
-    axis.ticks = element_blank(),
-    axis.text = element_blank(),
-    axis.title  = element_text(size = 12)
+    axis.ticks.x = element_blank(),
+    axis.text.x = element_blank(),
+    axis.title  = element_text(size = 12),
+    axis.text = element_text(size = 10)
   ) +
   annotate(
     "text",
-    x = 6500,
+    x = 6000,
     y = 0,
-    label = "Less Deprivation\n& Fewer Young Children",
+    label = "Less Deprivation\n& Fewer Households with Children",
     size = 3
   ) +
   annotate(
     "text",
-    x = 900,
+    x = 1100,
     y = 0,
-    label = "More Deprivation\n& Fewer Young Children",
+    label = "More Deprivation\n& Fewer Households with Children",
     size = 3
   ) +
   annotate(
     "text",
-    x = 6500,
-    y = 0.55,
-    label = "Less Deprivation\n& More Young Children",
+    x = 6000,
+    y = 80,
+    label = "Less Deprivation\n& More Households with Children",
     size = 3
   ) +
   annotate(
     "text",
-    x = 900,
-    y = 0.55,
-    label = "More Deprivation\n& More Young Children",
+    x = 1100,
+    y = 80,
+    label = "More Deprivation\n& More Households with Children",
     size = 3
   )
 
-ggplotly(p2, tooltip = "label")
+ggplotly(p3, tooltip = "label")
 ```
-
-
-
-```{r}
-simd_unemployed_plot <-
-grampian %>%
-  ggplot(aes(y = SIMD2020v2_Rank, 
-             x = prop_no_adults_in_employment_in_household_with_dependent_children, label = DZname, 
-             color = 
-               (prop_no_adults_in_employment_in_household_with_dependent_children < 5.15 & SIMD2020v2_Decile == 1) |
-               (prop_no_adults_in_employment_in_household_with_dependent_children < 4.50 & SIMD2020v2_Decile == 2) |
-               (prop_no_adults_in_employment_in_household_with_dependent_children < 2.90 & SIMD2020v2_Decile == 3) 
-  )) +
-  #annotate("rect", xmin = 7, xmax = 18, ymin = 2800, ymax = 0, alpha = 0.05) +
-  #annotate("text", x = 14.75, y = 2300, label = "Areas with highest deprivation\n& most lone parents", size = 3.5) +
-  geom_point(alpha = 0.5) +
-  scale_y_reverse() +
-  scale_color_brewer(type = "qual", palette = "Dark2") +
-  labs(x = "households with dependent children and no employed adults (%)", y = "\nDeprivation Rank\n") +
-  theme(legend.position = "none", axis.text.y = element_blank(), axis.text = element_text(size = 10), axis.title  = element_text(size = 12))
-
-ggplotly(simd_unemployed_plot, tooltip = "label")
-```
-
-```{r}
-p <-
-grampian %>%
-  ggplot(aes(
-    x = perc_no_adults_in_employment_in_household_with_dependent_children,
-    y = perc_one_or_more_persons_in_household_with_a_long_term_health_problem_or_disability_with_dependent_children,
-    label = DZname
-    )) +
-  geom_point(alpha = 0.5) +
-  theme(legend.position = "none", axis.text = element_text(size = 10), axis.title  = element_text(size = 12))
-
-ggplotly(p, tooltip = "label")
-```
-
-
-
-
-## 2. Lone Parents 
-
-### Are lone parents more deprived? 
-**Mouseover or click points for area names**
-
-```{r, echo = F}
-simd_lone_plot <-
-grampian_sf %>%
-  ggplot(aes(y = SIMD2020v2_Rank, x = perc_lone_parent_total, label = DZname, color = SIMD2020v2_Decile %in% c(1, 2, 3, 4) & perc_lone_parent_total >= 7)) +
-  annotate("rect", xmin = 7, xmax = 18, ymin = 2800, ymax = 0, alpha = 0.05) +
-  annotate("text", x = 14.75, y = 2300, label = "Areas with highest deprivation\n& most lone parents", size = 3.5) +
-  geom_point(alpha = 0.5) +
-  scale_y_reverse() +
-  scale_color_brewer(type = "qual", palette = "Dark2") +
-  labs(x = "% of working age population lone parent", y = "\nDeprivation Rank\n") +
-  theme(legend.position = "none", axis.text.y = element_blank(), axis.text = element_text(size = 10), axis.title  = element_text(size = 12))
-
-ggplotly(simd_lone_plot, tooltip = "label")
-```
-
-### Where do lone parents live?
-**Mouseover or click points for area names**
-
-```{r echo = F, message=F, fig.width=8}
-#parent_plot <-
-ggplot(data = grampian_sf,
-       aes(y = perc_lone_parent_total, x = LAname, color = LAname, label = DZname)) + 
-  geom_violin(alpha = 0.5) +
-  geom_jitter(width = 0.1, alpha = 0.5) +
-  geom_smooth(size = 0.5, method = "lm", se = F) +
-  theme(legend.position = "none") +
-  labs(x = "", y = "\nLone parents (%)\n")
-
-ggplotly(parent_plot, tooltip = "label")
-```
-
-```{r, echo = F}
-grampian %>%
-  filter(Council_area == "Aberdeen City") %>%
-  select(DZname, Total_population, perc_lone_parent_total, SIMD2020v2_Decile) %>%
-    filter(perc_lone_parent_total >= 10) %>%
-    arrange(desc(perc_lone_parent_total)) %>%
-  gt() %>%
-  fmt_number(columns = vars(perc_lone_parent_total), decimals = 0) %>%
-  tab_header(
-     title = "Areas in Aberdeen with most lone parents") %>%
-   cols_label(
-     DZname = "Data Zone",
-     Total_population = "Population",
-     perc_lone_parent_total = "Lone parents (%)",
-     SIMD2020v2_Decile = "Deprivation decile") %>%
-   tab_options(data_row.padding = px(1)) 
-```
-
-```{r, echo = F}
-grampian %>%
-  filter(Council_area == "Aberdeenshire") %>%
-  select(DZname, Total_population, perc_lone_parent_total, SIMD2020v2_Decile) %>%
-    filter(perc_lone_parent_total >= 10) %>%
-    arrange(DZname) %>%
-  gt() %>%
-  fmt_number(columns = vars(perc_lone_parent_total), decimals = 0) %>%
-  tab_header(
-     title = "Areas in Aberdeenshire with most lone parents") %>%
-   cols_label(
-     DZname = "Data Zone",
-     Total_population = "Population",
-     perc_lone_parent_total = "Lone parents (%)",
-     SIMD2020v2_Decile = "Deprivation decile") %>%
-   tab_options(data_row.padding = px(1)) 
-```
-
-```{r, echo = F}
-grampian %>%
-  filter(Council_area == "Moray") %>%
-  select(DZname, Total_population, perc_lone_parent_total, SIMD2020v2_Decile) %>%
-    filter(perc_lone_parent_total >= 10) %>%
-    arrange(DZname) %>%
-  gt() %>%
-  fmt_number(columns = vars(perc_lone_parent_total), decimals = 0) %>%
-  tab_header(
-     title = "Areas in Moray with most lone parents") %>%
-   cols_label(
-     DZname = "Data Zone",
-     Total_population = "Population",
-     perc_lone_parent_total = "Lone parents (%)",
-     SIMD2020v2_Decile = "Deprivation decile") %>%
-   tab_options(data_row.padding = px(1))
+<br></br>  
+<br></br>  
+  
+### Do more deprived neighbourhoods have more households with children?
+**Hover or click to see neighbourhood's name**  
+grey lines show Grampian medians
+```{r, echo = F, message=F}
+p4 <-
+  grampian %>%
+  ggplot(
+    aes(x = SIMD2020v2_Rank,
+        y = 100*prop_dependent_children_in_household_all_ages,
+        label = DZname)
+  ) +
+  geom_vline(xintercept = median(grampian$SIMD2020v2_Rank), size = 0.2, color = "gray") +
+  geom_hline(yintercept = round(100* median(grampian$prop_dependent_children_in_household_all_ages), 0), size = 0.2, color = "gray") +
+    geom_point(alpha = 0.5) +
+  ylim(0, 80) +
+  scale_x_reverse(breaks = c(100,6500), labels = c("high", "low")) +
+  facet_wrap(~ LAname) +
+  labs(x = "Deprivation") +
+  theme(
+    legend.position = "none",
+    axis.title.y = element_blank(),
+    axis.text = element_text(size= 8),
+    axis.title.x  = element_text(size = 12),
+    strip.background =element_rect(fill="grey95")
+  )
+ggplotly(p4, tooltip = "label")
 ```
 
 
