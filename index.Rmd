@@ -142,6 +142,8 @@ grampian %>%
 ggplotly(p1, tooltip = "label")
 ```
 
+<br></br>  
+<br></br>  
 
 ### Do more deprived neighbourhoods have more households with children?
 **Hover or click to see neighbourhood's name**  
@@ -231,7 +233,7 @@ ggplotly(p4, tooltip = "label")
 -----
 ## Sources  
 
-Lone parent data from the 2011 Census 
+Data from the 2011 Census 
 https://www.scotlandscensus.gov.uk/ods-web/data-warehouse.html
 
 Deprivation measures from Scottish Index of Multiple Deprivation 2020 version 2 
