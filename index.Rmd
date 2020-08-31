@@ -230,7 +230,7 @@ ggplotly(p4, tooltip = "label")
 <br></br>  
 <br></br>  
   
-### Which neighbourhoods have households with children but no adults in employment?
+### Which neighbourhoods have the most households with children but no adults in employment?
 **Hover or click to see neighbourhood's name**  
 grey line shows Grampian median  
 red points are highest 10% in Grampian
@@ -247,14 +247,14 @@ grampian %>%
              color = centile_children_unemployed <= 90)) +
   geom_hline(yintercept = median(grampian$prop_no_adults_in_employment_in_household_with_dependent_children/grampian$prop_dependent_children_in_household_all_ages)*100, color = "gray80", size = 0.2) +
   geom_jitter(alpha = 0.5) +
-  scale_x_reverse() +
-  labs(y = "households with children\n that have no adult in employment (%)\n") +
+  scale_x_reverse(breaks = c(100,7000), labels = c("high", "low")) +
+  labs(x = "Deprivation", y = "Households with children\n but no adult in employment (%)\n\n") +
   theme(
     legend.position = "none",
     axis.ticks.x = element_blank(),
-    axis.title.x  = element_blank(),
-    axis.title.y = element_text(size = 12),
-    axis.text.y = element_text(size = 10)
+    #axis.text.x = element_blank(),
+    axis.title = element_text(size = 12),
+    axis.text = element_text(size = 9)
   )
 
 ggplotly(p5, tooltip = "label")
