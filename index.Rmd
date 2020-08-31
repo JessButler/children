@@ -136,8 +136,6 @@ grampian %>%
     axis.title.x  = element_blank(),
     axis.text.y = element_text(size = 10)
   )
-  #annotate("text", x = "Moray", y = 20, label = "Grampian median", size = 3, vjust = -2, hjust = -0.7)+
-  #scale_x_discrete(expand = expansion(add = 1))
 
 ggplotly(p1, tooltip = "label")
 ```
@@ -227,6 +225,39 @@ p4 <-
     strip.background =element_rect(fill="grey95")
   )
 ggplotly(p4, tooltip = "label")
+```
+
+<br></br>  
+<br></br>  
+  
+### Which neighbourhoods have households with children but no adults in employment?
+**Hover or click to see neighbourhood's name**  
+grey line shows Grampian median  
+red points are highest 10% in Grampian
+
+```{r, echo = F}
+p5 <-
+grampian %>%
+  mutate(
+    prop_children_unemployed = prop_no_adults_in_employment_in_household_with_dependent_children/prop_dependent_children_in_household_all_ages,
+    centile_children_unemployed = ntile(prop_children_unemployed, 100)) %>%
+  ggplot(aes(label = DZname, 
+             x = SIMD2020v2_Rank, 
+             y = round(100*prop_children_unemployed, 0),
+             color = centile_children_unemployed <= 90)) +
+  geom_hline(yintercept = median(grampian$prop_no_adults_in_employment_in_household_with_dependent_children/grampian$prop_dependent_children_in_household_all_ages)*100, color = "gray80", size = 0.2) +
+  geom_jitter(alpha = 0.5) +
+  scale_x_reverse() +
+  labs(y = "households with children\n that have no adult in employment (%)\n") +
+  theme(
+    legend.position = "none",
+    axis.ticks.x = element_blank(),
+    axis.title.x  = element_blank(),
+    axis.title.y = element_text(size = 12),
+    axis.text.y = element_text(size = 10)
+  )
+
+ggplotly(p5, tooltip = "label")
 ```
 
 
