@@ -143,7 +143,7 @@ ggplotly(p1, tooltip = "label")
 <br></br>  
 <br></br>  
 
-### Do more deprived neighbourhoods have more households with children?
+### Are neighbourhoods with many households with children more or less deprived?
 **Hover or click to see neighbourhood's name**  
 grey lines show Grampian medians
 ```{r, echo = F}
@@ -199,7 +199,7 @@ ggplotly(p3, tooltip = "label")
 <br></br>  
 <br></br>  
   
-### Do more deprived neighbourhoods have more households with children?
+### Are neighbourhoods with many households with children more or less deprived?
 **Hover or click to see neighbourhood's name**  
 grey lines show Grampian medians
 ```{r, echo = F, message=F}
@@ -230,17 +230,20 @@ ggplotly(p4, tooltip = "label")
 <br></br>  
 <br></br>  
   
-### Which neighbourhoods have the most households with children but no adults in employment?
+### Which neighbourhoods have the highest % of households with children where no adults are employed?
 **Hover or click to see neighbourhood's name**  
 grey line shows Grampian median  
 red points are highest 10% in Grampian
 
 ```{r, echo = F}
-p5 <-
+grampian <-
 grampian %>%
   mutate(
     prop_children_unemployed = prop_no_adults_in_employment_in_household_with_dependent_children/prop_dependent_children_in_household_all_ages,
-    centile_children_unemployed = ntile(prop_children_unemployed, 100)) %>%
+    centile_children_unemployed = ntile(prop_children_unemployed, 100)) 
+
+p5 <-
+  grampian %>%
   ggplot(aes(label = DZname, 
              x = SIMD2020v2_Rank, 
              y = round(100*prop_children_unemployed, 0),
@@ -248,7 +251,7 @@ grampian %>%
   geom_hline(yintercept = median(grampian$prop_no_adults_in_employment_in_household_with_dependent_children/grampian$prop_dependent_children_in_household_all_ages)*100, color = "gray80", size = 0.2) +
   geom_jitter(alpha = 0.5) +
   scale_x_reverse(breaks = c(100,7000), labels = c("high", "low")) +
-  labs(x = "Deprivation", y = "Households with children\n but no adult in employment (%)\n\n") +
+  labs(x = "Deprivation", y = "% households with children\n where no adults are employed\n\n") +
   theme(
     legend.position = "none",
     axis.ticks.x = element_blank(),
@@ -258,6 +261,28 @@ grampian %>%
   )
 
 ggplotly(p5, tooltip = "label")
+```
+
+<br></br>  
+<br></br>  
+
+### Which neighbourhoods have the highest % of households with children where no adults are employed? 
+The highest 10% in Grampian (ordered by local authority)
+
+```{r}
+grampian %>%
+  filter(centile_children_unemployed >= 95) %>%
+  select(Data_Zone, Council_area, Intermediate_Zone, prop_children_unemployed, SIMD2020v2_Decile) %>%
+  arrange(Council_area, Intermediate_Zone) %>%
+  gt() %>%
+  fmt_percent(vars(prop_children_unemployed), decimals = 0) %>%
+  cols_label(
+    Data_Zone = "Data zone",
+    Council_area = "Council",
+    Intermediate_Zone = "Zone",
+    prop_children_unemployed = "% households with children that have no adult employed",
+    SIMD2020v2_Decile = "SIMD Decile") %>%
+  tab_options(data_row.padding = 0, container.height = 400)
 ```
 
 
