@@ -230,7 +230,7 @@ ggplotly(p4, tooltip = "label")
 <br></br>  
 <br></br>  
   
-### Which neighbourhoods have the highest % of households with children where no adults are employed?
+### Which neighbourhoods have the most households with children where no adults are employed?
 **Hover or click to see neighbourhood's name**  
 grey line shows Grampian median  
 red points are highest 10% in Grampian
@@ -266,10 +266,10 @@ ggplotly(p5, tooltip = "label")
 <br></br>  
 <br></br>  
 
-### Which neighbourhoods have the highest % of households with children where no adults are employed? 
+### Which neighbourhoods have the most households with children where no adults are employed? 
 The highest 10% in Grampian (ordered by local authority)
 
-```{r}
+```{r, echo=F}
 grampian %>%
   filter(centile_children_unemployed >= 95) %>%
   select(Data_Zone, Council_area, Intermediate_Zone, prop_children_unemployed, SIMD2020v2_Decile) %>%
