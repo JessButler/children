@@ -1,0 +1,23 @@
+```{r}
+library(here)
+library(tidyverse)
+library(janitor)
+```
+
+```{r}
+#load SIMD data
+
+simd_zones <- 
+  read_csv(here("data", "SIMD+2020v2+-+datazone+lookup.csv")) 
+
+simd_indicators <- 
+  read_csv(here("data", "SIMD2020v2_indicators.csv")) %>%
+   mutate(across(everything(), ~ str_remove_all(., "%")),
+          across(everything(), ~ str_remove_all(., "\\*")),
+          across(Total_population:nocentralheat_rate, ~ as.numeric(.)))
+
+#join deprivation to census files
+simd <- left_join(simd_indicators, simd_zones, by = c("Data_Zone" = "DZ")) 
+
+rm(simd_indicators, simd_zones)
+```
