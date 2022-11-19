@@ -8,16 +8,90 @@ library(janitor)
 #load SIMD data
 
 simd_zones <- 
-  read_csv(here("data", "SIMD+2020v2+-+datazone+lookup.csv")) 
+  read_csv(
+    here("data", "SIMD+2020v2+-+datazone+lookup.csv")) %>%
+  clean_names()
 
 simd_indicators <- 
   read_csv(here("data", "SIMD2020v2_indicators.csv")) %>%
+  clean_names() %>%
    mutate(across(everything(), ~ str_remove_all(., "%")),
           across(everything(), ~ str_remove_all(., "\\*")),
-          across(Total_population:nocentralheat_rate, ~ as.numeric(.)))
+          across(total_population:nocentralheat_rate, ~ as.numeric(.)))
 
 #join deprivation to census files
-simd <- left_join(simd_indicators, simd_zones, by = c("Data_Zone" = "DZ")) 
+simd <- 
+  left_join(simd_indicators, simd_zones, 
+            by = c("data_zone" = "dz")) 
 
 rm(simd_indicators, simd_zones)
 ```
+
+```{r}
+council_areas <-
+simd %>%
+  select(council_area) %>%
+  distinct() %>%
+  pull(council_area)
+
+simd_measures <-
+  c("alcohol", "drug", "depress")
+
+simd_councils <- function(x) {
+  y_max = max(simd$income_rate, na.rm = T)
+  plot <-
+    simd %>%
+    filter(council_area == x) %>%
+    ggplot(aes(simd2020v2_rank, income_rate)) +
+    geom_jitter(size = 2, color = "blue") +
+    ylim(0, y_max) +
+    ggtitle(x)
+  
+  print(plot)
+  #ggsave(plot, file = paste0("plot_", i, ".png"))
+}
+
+for (i in council_areas) {
+simd_councils(i)
+}
+
+for (y in simd_measures) {
+plot <-  
+simd %>%
+    ggplot(aes(simd2020v2_rank, !!ensym(y))) +
+    geom_point(size = 2, color = "blue") 
+print(plot)
+}
+
+my_area <- "Aberdeen City"
+my_measure <- "depress"
+my_areas <- c("Aberdeen City", "Aberdeenshire")
+my_measures <- c("depress", "drug")
+
+
+for (x in my_areas) {
+  for (y in my_measures) {
+    test_func(x, y)
+  }
+}
+
+test_func <- function(area, measure) {
+  measure <- sym(measure)
+  plot <-
+    simd %>%
+    filter(council_area == area) %>%
+    ggplot(aes(simd2020v2_rank, !!measure)) +
+    geom_point() +
+    ggtitle(area)
+  print(plot)
+}
+
+test_func(my_area, my_measure)
+```
+
+
+
+
+
+
+
